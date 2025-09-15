@@ -1,0 +1,204 @@
+
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* colors */
+    --light-purple: hsl(254, 88%, 90%);
+    --dark-purple: hsl(256, 67%, 59%);
+    --light-yellow--: hsl(31, 66%, 93%);
+    --dark-yellow: hsl(39, 100%, 71%);
+    --white: hsl(0, 0%, 100%);
+    --off-white: hsl(0 0% 96.1%);
+    --black: hsl(0, 0%, 7%);
+
+     /* typo */
+    --fs-2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+    --fs-1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+    --fs0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --fs1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+    --fs2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+    --fs3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+    --fs4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+    --fs5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+
+    /* spacing */
+    --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+    --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+    --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+    --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+    --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+    --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+    --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+    --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+    /* border-radius */
+    --rounded-md: 16px;
+}
+
+.text-purple {
+    color: var(--dark-purple);
+}
+
+.text-yellow {
+    color: var(--dark-yellow);
+}
+
+h2 {
+  text-wrap: balance;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+body{
+  font-family: "DM Sans", sans-serif;
+  padding: var(--space-m);
+  margin: 20px;
+  font-weight: 400;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 50px 0.1.2fr 1fr;
+    gap: var(--space-s);
+    grid-template-areas:
+    "schedule social social optimize"
+    "schedule multiple consistent optimize"
+    "content multiple consistent optimize"
+    "content audience followers followers";
+
+
+    @media screen and (max-width: 768px) {
+      display: grid;
+      max-width: 1200px;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+      "schedule"
+      "social"
+      "multiple"
+      "consistent"
+      "optimize"
+      "audience"
+      "growth"
+      "schedule"
+      "content";
+    } 
+
+    img{
+      max-width: 100%;
+    }
+}
+
+.bento-item {
+  padding: var(--space-m);
+  border-radius: var(--rounded-md);
+  display: grid;
+  width: 100%;
+  overflow: hidden;
+  gap: var(--spaces);
+  p {
+    text-wrap: pretty;
+  }
+  h2 {
+    font-size: var(--fs1);
+  }
+  }
+
+.schedule {
+  grid-area: schedule;
+  background-color: var(--light-yellow--);
+  align-content: center;
+  h2{
+    font-size: var(--fs2);
+  }
+
+  img {
+    width: 300px;
+    padding-left: 0;
+    @media screen and (min-width: 768px) {
+      width: 100%;
+    }
+  }
+  h2, p{
+    padding-right: 100px;
+  }
+}
+.social{
+    grid-area: social;
+    background-color: var(--dark-purple);
+    color: white;
+    text-align: center;
+    padding-bottom: var(--fs4);
+    padding-top: var(--fs3);
+    h2{
+      font-size: var(--fs3);
+      padding-bottom: var(--fs1);
+    }
+}
+
+.optimize{
+    grid-area: optimize;
+    background-color: var(--light-purple);
+}
+
+.content{
+    grid-area: content;
+    background-color: var(--dark-yellow);
+    img{
+      width: 200px;
+    }
+}
+
+.multiple{
+    grid-area: multiple;
+    background-color: var(--white);
+    @media screen and (min-width: 768px) {
+      img {
+        max-width: 300px;
+      }
+    }
+}
+
+.consistent{
+    grid-area: consistent;
+    background-color: var(--dark-yellow);
+    padding-block-end: 0;
+}
+
+.audience{
+    grid-area: audience;
+    background-color: var(--white);
+    .large {
+      font-size: var(--fs4);
+      font-weight: 500;
+    }
+    img {
+      width: 200px;
+      @media screen and (min-width: 768px) {
+        width: 100%;
+      }
+    }
+}
+
+.followers{
+    grid-area: followers;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-purple);
+    h2{
+      color: white;
+      width: 400px;
+    }
+    img{
+      width: 300px;
+    }
+}
+
